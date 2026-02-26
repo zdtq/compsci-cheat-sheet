@@ -377,13 +377,13 @@
                 \subsection{Definizioni di $O$-grande, $\Omega$-grande, $\Theta$-grande}
                 \subsubsection{$O$-grande}
         $O(g(n))$ è l'insieme delle funzioni che sono asintoticamente dominate da $g(n)$ a meno di una costante.\\[5pt]
-        $O(g(n)) = \{f(n)\ |\ \exists c>0, n_0>0 \text{ tali che } \forall n \geq n_0, f(n) \leq c\cdot g(n)$\}
+        $O(g(n)) = \{f(n)\ |\ \exists c, n_0>0 \text{ tali che } \forall n \geq n_0, f(n) \leq c\cdot g(n)$\}
                 \subsubsection{$\Omega$-grande}
         $\Omega(g(n))$ è l'insieme delle funzioni che dominano asintoticamente $g(n)$ a meno di una costante.\\[5pt]
-        $\Omega(g(n)) = \{f(n)\ |\ \exists c>0, n_0>0 \text{ tali che } \forall n \geq n_0, f(n) \geq c\cdot g(n)$\}
+        $\Omega(g(n)) = \{f(n)\ |\ \exists c, n_0>0 \text{ tali che } \forall n \geq n_0, f(n) \geq c\cdot g(n)$\}
                 \subsubsection{$\Theta$-grande}
         $\Theta(g(n))$ è l'insieme delle funzioni che hanno approssimativamente lo stesso comportamento astintotico di $g(n)$.\\[5pt]
-        $\Theta(g(n)) = \{ f(n)\ |\ \exists c_1 > 0, c_2 > 0, n_0 > 0 \text{ tali che } \forall n \geq n_0, \ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \}$
+        $\Theta(g(n)) = \{ f(n)\ |\ \exists c_1, c_2, n_0 > 0 \text{ tali che } \forall n \geq n_0, \ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \}$
                 \\[5pt]
                 \textbf{N.B.} Spesso si utilizza la notazione $f(n) = O(g(n))$ invece di $f(n) \in O(g(n))$ per indicare che la funzione $f(n)$ appartiene all'insieme di funzioni $O(g(n))$ anche se non è una notazione formalmente corretta.
                 \subsection{Criterio di costo costante e logaritmico}
