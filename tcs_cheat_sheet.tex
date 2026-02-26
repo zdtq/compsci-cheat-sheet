@@ -346,17 +346,17 @@
         Sia $F = \{f_i\ |\ i \in \mathbb{N}\}$ l'insieme di tutte le funzioni computabili, sia $P \subseteq F = \{f_i\ |\ f_i\text{ soddisfa una certa proprietà}\}$ un sottoinsieme di $F$ di funzioni computabili che soddisfano una certa proprietà e sia \\$S=\{x\ |\ f_x \in P\}$ l'insieme degli indici delle funzioni che appartengono a $P$. Allora $S$ ric. $\iff P = \varnothing \lor P = F$. Più informalmente, il teorema di Rice afferma che per qualsiasi proprietà non banale (cioè vera per almeno una funzione e falsa per almeno una funzione) delle funzioni computabili, non esiste un algoritmo che possa decidere se una data funzione computabile soddisfi o meno quella proprietà.
                 \subsection{Riduzione}
                 La riduzione può essere usata per dimostrare che un dato problema è decidibile o indecidibile.\\
-                \textbf{Caso decidibile} Sia $P_1$ un noto problema decidibile e sia $P_2$ un problema che si sospetta essere decidibile. Si può dimostrare che $P_2$ è decidibile riducendolo a $P_1$.\\[3pt]
+                \textbf{Caso decidibile} Sia $P_1$ un noto problema decidibile e sia $P_2$ un problema che si sospetta essere decidibile. Si può dimostrare che $P_2$ è decidibile riducendolo a $P_1$ ($P_2 \le P_1$).\\[3pt]
                 \textsc{RisolviP$_2$}($x$)\\
                 \hspace*{1.5em}$y \leftarrow \textsc{Riduci}(x)$\\
                 \hspace*{1.5em}$sol \leftarrow \textsc{RisolviP$_1$}(y)$\\
                 \hspace*{1.5em}\textbf{return} $sol$\\[3pt]
-                \textbf{Caso indecidibile} Sia $P_1$ un noto problema indecidibile e sia $P_2$ un problema che si sospetta essere indecidibile. Si può dimostrare che $P_2$ è indecidibile riducendolo da $P_1$.\\[3pt]
+                \textbf{Caso indecidibile} Sia $P_1$ un noto problema indecidibile e sia $P_2$ un problema che si sospetta essere indecidibile. Si può dimostrare che $P_2$ è indecidibile riducendo $P_1$ a $P_2$ ($P_1 \le P_2$).\\[3pt]
                 \textsc{RisolviP$_1$}($x$)\\
                 \hspace*{1.5em}$y \leftarrow \textsc{Riduci}(x)$\\
                 \hspace*{1.5em}$sol \leftarrow \textsc{RisolviP$_2$}(y)$\\
                 \hspace*{1.5em}\textbf{return} $sol$\\[3pt]
-                In altre parole, se riuscissimo a risolvere $P_2$, riusciremmo a risolvere anche $P_1$ ma questo è impossibile in quanto $P_1$ è un noto problema indecidibile.
+                In altre parole, se riuscissimo a risolvere $P_2$, riusciremmo a risolvere anche $P_1$, ma questo è impossibile in quanto $P_1$ è un noto problema indecidibile.
                 \subsection{Noti problemi indecidibili}
                 \subsubsection{Problema dell'arresto (Halting problem)}
                 Data una macchina di Turing $\mathcal{M}$ e un input $w$, determinare se $\mathcal{M}$ si arresta su $w$.\\ [3pt]
@@ -991,7 +991,7 @@
                 un cammino tra ogni coppia di essi e nessuno di essi è connesso a nodi  $\notin \textbf{S}$.\\ [5pt]
                 \textbf{Esempio} Componenti connesse $S_1 = \{v_1,v_2,v_3,v_4\}, S_2 = \{v_5,v_6,v_7\}$ \\ [3pt]
                 \begin{center}
-                        \begin{tikzpicture}[->, >=stealth', node distance=1.5cm, on grid, auto]
+                        \begin{tikzpicture}[-, >=stealth', node distance=1.5cm, on grid, auto]
                                 % Define the nodes
                                 \node[circle,draw] (v1) {$v_1$};
                                 \node[circle,draw] (v2) [circle, draw, below=of v1] {$v_2$};
@@ -1002,16 +1002,14 @@
                                 \node[circle,draw] (v7) [circle, draw, right=of v6] {$v_7$};
 
                                 % Draw the edges
-                                \draw[->] (v1) to (v2);
-                                \draw[->] (v2) to (v4);
-                                \draw[->] (v2) to (v3);
-                                \draw[->] (v3) to (v4);
-                                \draw[->] (v4) to (v1);
-                                \draw[->] (v3) to (v6);
-                                \draw[->] (v4) to (v5);
-                                \draw[->] (v5) to (v6);
-                                \draw[->] (v6) to (v7);
-                                \draw[->] (v7) to (v5);
+                                \draw[-] (v1) to (v2);
+                                \draw[-] (v2) to (v4);
+                                \draw[-] (v2) to (v3);
+                                \draw[-] (v3) to (v4);
+                                \draw[-] (v4) to (v1);
+                                \draw[-] (v5) to (v6);
+                                \draw[-] (v6) to (v7);
+                                \draw[-] (v7) to (v5);
 
                                 % Calculate the center point between v3, v4, and v6
                                 \path (v2) -- (v3) node[midway] (center1) {};
@@ -1231,7 +1229,7 @@
 
                 \begin{multicols}{2}
                         \textsc{Quicksort($A, lo, hi$)}\\ [3pt]
-                        \verb|1|\hspace*{0.5em} \textbf{se} $lo < hi$\\
+                        \verb|1|\hspace*{0.5em} \textbf{if} $lo < hi$\\
                         \verb|2|\hspace*{1.5em} $p \leftarrow \textsc{PartLomuto}(A, lo, hi)$\\
                         \verb|3|\hspace*{1.5em} \textsc{Quicksort}($A, lo, p - 1$)\\
                         \verb|4|\hspace*{1.5em} \textsc{Quicksort}($A, p + 1, hi$)\\
@@ -1251,7 +1249,7 @@
                 Lo schema di partizione di Hoare seleziona il primo elemento dell'array come pivot. Utilizza due indici, uno che procede dall'inizio dell'array verso destra e uno che procede dalla fine dell'array verso sinistra, scambiando gli elementi fuori posizione fino a quando i due indici si incontrano. Alla fine, il pivot viene inserito tra i due gruppi e l'indice di partizione è determinato.
                 \begin{multicols}{2}
                         \textsc{Quicksort($A, lo, hi$)}\\ [3pt]
-                        \verb|1|\hspace*{0.5em} \textbf{se} $lo < hi$\\
+                        \verb|1|\hspace*{0.5em} \textbf{if} $lo < hi$\\
                         \verb|2|\hspace*{1.5em} $p \leftarrow \textsc{PartHoare}(A, lo, hi)$\\
                         \verb|3|\hspace*{1.5em} \textsc{Quicksort}($A, lo, p$)\\
                         \verb|4|\hspace*{1.5em} \textsc{Quicksort}($A, p + 1, hi$)\\
