@@ -307,26 +307,29 @@
                 \bgroup
                 \def\arraystretch{1}% 
                 \begin{tabular}{r c c c c c c c}
-                                                & \textbf{REG} & \textbf{DCFL} & \textbf{CFL} & \textbf{CSL} & \textbf{RIC} & \textbf{RE} \\ \hline
-                        \texttt{Unione}         & \checkmark   & $\times$      & \checkmark   & \checkmark   & \checkmark   & \checkmark  \\\hline
-                        \texttt{Intersezione}   & \checkmark   & $\times$      & $\times$     & \checkmark   & \checkmark   & \checkmark  \\\hline
-                        \texttt{Differenza}     & \checkmark   & $\times$      & $\times$     & \checkmark   & \checkmark   & $\times$    \\\hline
-                        \texttt{Complemento}    & \checkmark   & \checkmark    & $\times$     & \checkmark   & \checkmark   & $\times$    \\\hline
-                        \texttt{Concatenazione} & \checkmark   & $\times$      & \checkmark   & \checkmark   & \checkmark   & \checkmark  \\\hline
-                        \texttt{Star di Kleene} & \checkmark   & $\times$      & \checkmark   & \checkmark   & \checkmark   & \checkmark  \\\hline
+                                                & \textbf{SF} & \textbf{REG} & \textbf{DCFL} & \textbf{CFL} & \textbf{CSL} & \textbf{RIC} & \textbf{RE} \\ \hline
+                        \texttt{Unione}         & \checkmark & \checkmark   & $\times$      & \checkmark   & \checkmark   & \checkmark   & \checkmark  \\\hline
+                        \texttt{Intersezione}   & \checkmark & \checkmark   & $\times$      & $\times$     & \checkmark   & \checkmark   & \checkmark  \\\hline
+                        \texttt{Differenza}     & \checkmark & \checkmark   & $\times$      & $\times$     & \checkmark   & \checkmark   & $\times$    \\\hline
+                        \texttt{Complemento}    & \checkmark & \checkmark   & \checkmark    & $\times$     & \checkmark   & \checkmark   & $\times$    \\\hline
+                        \texttt{Concatenazione} & \checkmark & \checkmark   & $\times$      & \checkmark   & \checkmark   & \checkmark   & \checkmark  \\\hline
+                        \texttt{Star di Kleene} & $\times$ & \checkmark   & $\times$      & \checkmark   & \checkmark   & \checkmark   & \checkmark  \\\hline
                 \end{tabular}
                 \egroup
                 \vspace{5pt}
         \end{minipage}
         \begin{tabular}{@{}r p{7.6cm}@{}}
-                \verb|REG|  & Linguaggi regolari (riconosciuti da una grammatica regolare / esprimibili mediante un'espressione regolare) \\
-                \verb|DCFL| & Linguaggi context free deterministici (riconosciuti da una grammatica context free deterministica)          \\
-                \verb|CFL|  & Linguaggi context free (riconosciuti da una grammatica context free)                                        \\
+                \verb|SF|   & Linguaggi star free (esprimibili mediante una logica del prim'ordine) \\
+                \verb|REG|  & Linguaggi regolari (esprimibili mediante un'espressione regolare / riconosciuti da una grammatica regolare o da un FSA) \\
+                \verb|DCFL| & Linguaggi context free deterministici (riconosciuti da un automa a pila deterministico)          \\
+                \verb|CFL|  & Linguaggi context free (riconosciuti da una grammatica context free o da un automa a pila non deterministico)                                        \\
                 \verb|CSL|  & Linguaggi context sensitive (riconosciuti da una grammatica context sensitive)                              \\
-                \verb|RIC|  & Linguaggi ricorsivi (esiste una MT che per ogni stringa appartenente al linguaggio, accetta o rifiuta)      \\
-                \verb|RE|   & Linguaggi ricorsivamente enumerabili (riconosciuti da una grammatica non ristretta)                         \\
+                \verb|RIC|  & Linguaggi ricorsivi (esiste una MT che per ogni stringa in input, termina la sua esecuzione determinando se la stringa è accettata o rifiutata)      \\
+                \verb|RE|   & Linguaggi ricorsivamente enumerabili (riconosciuti da una grammatica non ristretta o da una MT
+    che può non terminare sugli input non appartenenti al linguaggio)                         \\
         \end{tabular} \\ [5pt]
-        \verb|FIN| (linguaggi finiti) $\subset$ \verb|REG| $\subset$ \verb|DCFL| $\subset$ \verb|CFL| $\subset$ \verb|CSL| $\subset$ \verb|RIC| $\subset$ \verb|RE|\\ [3pt]
+        \verb|SF| $\subset$ \verb|REG| $\subset$ \verb|DCFL| $\subset$ \verb|CFL| $\subset$ \verb|CSL| $\subset$ \verb|RIC| $\subset$ \verb|RE|\\ [3pt]
+        \vspace{-0.3cm}
         \section{Teoria della computazione}
         \begin{tabular}{@{}r p{6.5cm}@{}}
                 \verb|Tesi di Church| & tutti i problemi computabili sono descrivibili da una macchina di Turing. \textit{(MT, programma, algoritmo, procedura sono usati come sinonimi)}                                                     \\
